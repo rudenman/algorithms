@@ -1,32 +1,41 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
 
-    public static void selectionSort(int[] arr) {
-        if (arr.length == 0) {
-            return;
-        }
-        for (int i = 0; i < arr.length; i++) {
-            int minElementIndex = i;
-            minElementIndex = searchMinElementArray(arr, minElementIndex, arr.length);
-            swap(arr, i, minElementIndex);
+    public static void quickSort(int[] arr, int startIndex, int endIndex) {
+        if (startIndex < endIndex) {
+            int divideIndex = partition(arr, startIndex, endIndex);
+            quickSort(arr, startIndex, divideIndex - 1);
+            quickSort(arr, divideIndex, endIndex);
         }
     }
 
-    public static int searchMinElementArray(int[] arr, int startIndex, int endIndex) {
-        int minElementIndex = startIndex;
-        for (int i = startIndex; i < endIndex; i++) {
-            if (arr[i] < arr[minElementIndex]) {
-                minElementIndex = i;
+    private static int partition(int[] arr, int startIndex, int endIndex) {
+        int leftIndex = startIndex, rightIndex = endIndex;
+        int pivot = arr[new Random().nextInt(endIndex - startIndex) + startIndex];
+        while (leftIndex <= rightIndex) {
+            while (arr[leftIndex] < pivot) {
+                leftIndex++;
+            }
+            while (arr[rightIndex] > pivot) {
+                rightIndex--;
+            }
+            if (leftIndex <= rightIndex) {
+                swap(arr, leftIndex, rightIndex);
+                leftIndex++;
+                rightIndex--;
             }
         }
-        return minElementIndex;
+        return leftIndex;
     }
 
-    public static void swap(int[] arr, int i1, int i2) {
-        int copyElement = arr[i1];
-        arr[i1] = arr[i2];
-        arr[i2] = copyElement;
+    private static void swap(int[] arr, int leftIndex, int rightIndex) {
+        int tmp = arr[leftIndex];
+        arr[leftIndex] = arr[rightIndex];
+        arr[rightIndex] = tmp;
     }
 
 }
