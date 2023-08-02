@@ -1,30 +1,32 @@
 package org.example;
 
-
-import java.util.Arrays;
-
 public class Main {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-        System.out.println(binarySearch(arr, 50));
+
+    public static void selectionSort(int[] arr) {
+        if (arr.length == 0) {
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int minElementIndex = i;
+            minElementIndex = searchMinElementArray(arr, minElementIndex, arr.length);
+            swap(arr, i, minElementIndex);
+        }
     }
 
-    public static int binarySearch(int[] arr, int value) {
-        if (arr.length == 0) {
-            return -1;
-        }
-        int low = 0, high = arr.length - 1;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (arr[mid] < value) {
-                low = mid + 1;
-            } else if (arr[mid] > value) {
-                high = mid - 1;
-            } else if (arr[mid] == value) {
-                return mid;
+    public static int searchMinElementArray(int[] arr, int startIndex, int endIndex) {
+        int minElementIndex = startIndex;
+        for (int i = startIndex; i < endIndex; i++) {
+            if (arr[i] < arr[minElementIndex]) {
+                minElementIndex = i;
             }
         }
-        return -1;
+        return minElementIndex;
+    }
+
+    public static void swap(int[] arr, int i1, int i2) {
+        int copyElement = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = copyElement;
     }
 
 }

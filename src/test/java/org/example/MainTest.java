@@ -6,11 +6,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
     @Test
-    public void testBinarySearch() {
-        assertEquals(-1, Main.binarySearch(new int[0], 4));
-        assertEquals(7, Main.binarySearch(new int[]{10, 20, 22, 22, 33, 44, 55, 100}, 100));
-        assertEquals(3, Main.binarySearch(new int[]{10, 20, 22, 22, 33, 44, 55, 100}, 22));
-        assertEquals(5, Main.binarySearch(new int[]{11, 22, 23, 24, 35, 41, 51, 1023}, 41));
-        assertEquals(-1, Main.binarySearch(new int[]{10, 9, 8, 7, 6, 5}, 5));
+    public void testSelectionSort() {
+        int[] arr1 = {2, 3, 4, -1};
+        Main.selectionSort(arr1);
+        assertArrayEquals(new int[]{-1, 2, 3, 4}, arr1);
+
+        int[] arr2 = {-23, 223, 0, 1, 2, 4, 6, -100, 22, 0, 3, 4, 5, 6, 8, 9};
+        Main.selectionSort(arr2);
+        assertArrayEquals(new int[]{-100, -23, 0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 8, 9, 22, 223}, arr2);
+
+        int[] arr3 = new int[0];
+        Main.selectionSort(arr3);
+        assertArrayEquals(new int[0], arr3);
     }
 }
