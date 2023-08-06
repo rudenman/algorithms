@@ -8,7 +8,7 @@ public class DoublyLinkedListTest<T> {
     private final DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
 
     @Test
-    public void addTest() {
+    public void testAdd() {
         list.add(0, 0);
         list.add(1);
         list.add(2);
@@ -24,8 +24,8 @@ public class DoublyLinkedListTest<T> {
     }
 
     @Test
-    public void removeTest() {
-        addTest();
+    public void testRemove() {
+        testAdd();
 
         list.remove(0);
         list.remove(list.getSize() - 1);
