@@ -3,7 +3,7 @@ package org.example;
 import org.junit.jupiter.api.Test;
 
 
-public class DoublyLinkedListTest<T> {
+public class DoublyLinkedListTest {
 
     private final DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
 
