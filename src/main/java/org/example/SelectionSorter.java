@@ -1,6 +1,6 @@
 package org.example;
 
-public class Main {
+public class SelectionSorter {
 
     public static void selectionSort(int[] arr) {
         if (arr.length == 0) {
