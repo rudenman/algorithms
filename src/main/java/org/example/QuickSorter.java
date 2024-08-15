@@ -1,9 +1,8 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class Main {
+public class QuickSorter {
 
     public static void quickSort(int[] arr, int startIndex, int endIndex) {
         if (startIndex < endIndex) {
