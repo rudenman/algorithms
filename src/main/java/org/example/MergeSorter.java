@@ -1,7 +1,7 @@
 package org.example;
 
 
-public class Main {
+public class MergeSorter {
 
     public static int[] mergeSort(int[] arr) {
         int[] tmp;
