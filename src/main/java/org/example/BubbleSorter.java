@@ -1,7 +1,7 @@
 package org.example;
 
 
-public class Main {
+public class BubbleSorter {
 
     public static void bubbleSort(int[] arr) {
         boolean isSorted = false;
