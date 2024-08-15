@@ -1,13 +1,7 @@
 package org.example;
 
 
-import java.util.Arrays;
-
-public class Main {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-        System.out.println(binarySearch(arr, 50));
-    }
+public class BinarySearcher {
 
     public static int binarySearch(int[] arr, int value) {
         if (arr.length == 0) {
